@@ -8,31 +8,60 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
-    var count = 0
-    @IBOutlet var label:UILabel!
-    
+    // MARK: Outlets
+
+    @IBOutlet weak var imagePickerView: UIImageView!
+    @IBOutlet weak var cameraButton: UIBarButtonItem!
+
+    // MARK: Actions
+
+    @IBAction func pickAnImageFromAlbum(_ sender: Any) {
+        pickAnImage(.photoLibrary)
+    }
+    @IBAction func pickAnImageFromCamera(_ sender: Any) {
+        pickAnImage(.camera)
+    }
+
+    func pickAnImage(_ sourceType: UIImagePickerControllerSourceType) {
+        let pickerController = UIImagePickerController()
+        pickerController.delegate = self
+        pickerController.sourceType = sourceType
+        present(pickerController, animated: true, completion: nil)
+    }
+
+    // MARK: UIImagePickerControllerDelegate
+
+    func imagePickerController(_ picker: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info: [String : Any]){
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            imagePickerView.image = image
+        }
+        dismiss(animated: true, completion: nil)
+    }
+
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+
+
+    // MARK: UIViewController
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    @IBAction func incrementCount() {
-        self.count = self.count+1
-        self.label.text = "\(self.count)"
-    }
-    func decrementCount() {
-        self.count = self.count-1
-        self.label.text = "\(self.count)"
-    }
-    
-    func toggleBackgroundColor() {
-        self.view.backgroundColor = self.count % 2 != 0 ? UIColor.black : UIColor.white
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
     }
 
 }

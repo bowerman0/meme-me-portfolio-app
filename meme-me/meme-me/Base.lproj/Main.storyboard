@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina3_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,33 +21,64 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w8n-6A-gQv">
-                                <rect key="frame" x="166" y="323" width="42" height="21"/>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dca-ZU-zNM">
+                                <rect key="frame" x="0.0" y="437" width="320" height="44"/>
+                                <items>
+                                    <barButtonItem title="Choose photo" id="0BH-ax-ezT">
+                                        <connections>
+                                            <action selector="pickAnImageFromAlbum:" destination="BYZ-38-t0r" id="bqr-Nt-vnJ"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Take photo" id="TSK-PS-Fvr">
+                                        <connections>
+                                            <action selector="pickAnImageFromCamera:" destination="BYZ-38-t0r" id="D3N-ga-DNh"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rID-H1-QV0">
+                                <rect key="frame" x="40" y="28" width="240" height="240.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="rID-H1-QV0" secondAttribute="height" multiplier="1:1" id="Muc-Uk-emK"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1M8-7I-hLQ">
+                                <rect key="frame" x="112" y="28" width="97" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qan-OK-lH4">
-                                <rect key="frame" x="166" y="387" width="46" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cki-k9-Gmn">
+                                <rect key="frame" x="112" y="238" width="97" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Click"/>
-                                <connections>
-                                    <action selector="incrementCount" destination="BYZ-38-t0r" eventType="touchUpInside" id="1nX-cK-HEV"/>
-                                </connections>
-                            </button>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="rID-H1-QV0" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.75" priority="900" id="2Sy-sG-nli"/>
+                            <constraint firstAttribute="trailing" secondItem="Dca-ZU-zNM" secondAttribute="trailing" id="54H-Hq-Ipq"/>
+                            <constraint firstItem="Dca-ZU-zNM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="5uM-c5-gIo"/>
+                            <constraint firstItem="rID-H1-QV0" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="AvH-oG-Lpl"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="Dca-ZU-zNM" secondAttribute="bottom" constant="-1" id="cFw-t1-wjL"/>
+                            <constraint firstItem="rID-H1-QV0" firstAttribute="height" relation="lessThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.75" id="xG2-Fj-Eb4"/>
+                            <constraint firstItem="rID-H1-QV0" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="yAp-be-N8V"/>
+                        </constraints>
                     </view>
                     <connections>
-                        <outlet property="label" destination="w8n-6A-gQv" id="ELj-i1-7gI"/>
+                        <outlet property="cameraButton" destination="TSK-PS-Fvr" id="qCe-up-m0y"/>
+                        <outlet property="imagePickerView" destination="rID-H1-QV0" id="cCV-TZ-GPv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="133.59999999999999" y="138.98050974512745"/>
         </scene>
     </scenes>
 </document>
