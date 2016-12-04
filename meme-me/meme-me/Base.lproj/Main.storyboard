@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina3_5" orientation="portrait">
+    <device id="retina4_0" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -21,11 +21,11 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dca-ZU-zNM">
-                                <rect key="frame" x="0.0" y="437" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="277" width="568" height="44"/>
                                 <items>
                                     <barButtonItem title="Choose photo" id="0BH-ax-ezT">
                                         <connections>
@@ -40,21 +40,19 @@
                                 </items>
                             </toolbar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rID-H1-QV0">
-                                <rect key="frame" x="40" y="28" width="240" height="240.5"/>
+                                <rect key="frame" x="164" y="28" width="240" height="240"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="rID-H1-QV0" secondAttribute="height" multiplier="1:1" id="Muc-Uk-emK"/>
                                 </constraints>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1M8-7I-hLQ">
-                                <rect key="frame" x="112" y="28" width="97" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="TOP" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1M8-7I-hLQ">
+                                <rect key="frame" x="259.5" y="28" width="49" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cki-k9-Gmn">
-                                <rect key="frame" x="112" y="238" width="97" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="BOTTOM" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cki-k9-Gmn">
+                                <rect key="frame" x="243" y="238" width="81" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -66,9 +64,13 @@
                             <constraint firstAttribute="trailing" secondItem="Dca-ZU-zNM" secondAttribute="trailing" id="54H-Hq-Ipq"/>
                             <constraint firstItem="Dca-ZU-zNM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="5uM-c5-gIo"/>
                             <constraint firstItem="rID-H1-QV0" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="AvH-oG-Lpl"/>
+                            <constraint firstItem="cki-k9-Gmn" firstAttribute="centerX" secondItem="rID-H1-QV0" secondAttribute="centerX" id="P7I-MW-GNM"/>
                             <constraint firstAttribute="bottomMargin" secondItem="Dca-ZU-zNM" secondAttribute="bottom" constant="-1" id="cFw-t1-wjL"/>
+                            <constraint firstItem="cki-k9-Gmn" firstAttribute="bottom" secondItem="rID-H1-QV0" secondAttribute="bottom" id="dav-Qb-gDx"/>
+                            <constraint firstItem="1M8-7I-hLQ" firstAttribute="centerX" secondItem="rID-H1-QV0" secondAttribute="centerX" id="hW3-cd-kpX"/>
                             <constraint firstItem="rID-H1-QV0" firstAttribute="height" relation="lessThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.75" id="xG2-Fj-Eb4"/>
                             <constraint firstItem="rID-H1-QV0" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="yAp-be-N8V"/>
+                            <constraint firstItem="1M8-7I-hLQ" firstAttribute="top" secondItem="rID-H1-QV0" secondAttribute="top" id="zCb-1c-5rf"/>
                         </constraints>
                     </view>
                     <connections>
