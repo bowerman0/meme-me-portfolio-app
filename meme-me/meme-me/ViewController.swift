@@ -149,23 +149,25 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     // MARK: meme-ifier
 
     func generateMemedImage() -> UIImage {
-
-        // Hide toolbar and navbar
-        navigationController?.setToolbarHidden(false, animated: false)
-        self.bottomToolbar.isHidden = true
-
-
         // Render view to an image
-        UIGraphicsBeginImageContext(self.imageView.frame.size)
-        self.view.drawHierarchy(in: self.imageView.frame, afterScreenUpdates: true)
+        UIGraphicsBeginImageContext(self.view.bounds.size)
+        self.view.drawHierarchy(in: self.view.bounds, afterScreenUpdates: true)
         let memedImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
 
-        // Show toolbar and navbar
-        navigationController?.setToolbarHidden(true, animated: false)
-        self.bottomToolbar.isHidden = false
+        // Crop out the non-meme parts of the UI
+        if let cgImage = memedImage.cgImage {
+            let scaledCropRect = CGRect(x: self.imageView.frame.origin.x,
+                                        y: self.imageView.frame.origin.y,
+                                        width: self.imageView.frame.size.width,
+                                        height: self.imageView.frame.size.height)
 
-        return memedImage
+            if let croppedMemedImage = cgImage.cropping(to: scaledCropRect) {
+                return UIImage(cgImage: croppedMemedImage)
+            }
+        }
+
+        return memedImage // If that failed, show the ugly whitespace version
     }
 }
 
