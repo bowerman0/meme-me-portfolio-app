@@ -12,7 +12,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
     // MARK: Outlets
 
-    @IBOutlet weak var imagePickerView: UIImageView!
+    @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var topText: UITextField!
     @IBOutlet weak var bottomText: UITextField!
@@ -39,6 +39,23 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
     }
 
+    @IBAction func cancel(_ sender: Any) {
+        self.topText.resignFirstResponder() // placeholder text not centered correctly without this
+        self.topText.text = ""
+
+        self.bottomText.resignFirstResponder() // placeholder text not centered correctly without this
+        self.bottomText.text = ""
+
+        self.imageView.image = nil
+    }
+
+    @IBAction func textChanged(_ sender: Any) {
+        if let textField = sender as? UITextField {
+            textField.invalidateIntrinsicContentSize()
+            textField.textAlignment = .center
+        }
+    }
+
     func pickAnImage(_ sourceType: UIImagePickerControllerSourceType) {
         let pickerController = UIImagePickerController()
         pickerController.delegate = self
@@ -51,7 +68,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [String : Any]){
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            imagePickerView.image = image
+            self.imageView.image = image
         }
         dismiss(animated: true, completion: nil)
     }
@@ -60,13 +77,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         dismiss(animated: true, completion: nil)
     }
 
-    // MARK: UITextView
+    // MARK: UITextField
 
-    @IBAction func textEditingDidBegin(_ sender: Any) {
-        if let textField = sender as? UITextField {
-            textField.placeholder = nil
-        }
-    }
     func textFieldShouldReturn(_ textField:UITextField)->Bool {
         textField.resignFirstResponder()
         return true
@@ -144,8 +156,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
 
         // Render view to an image
-        UIGraphicsBeginImageContext(self.imagePickerView.frame.size)
-        view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
+        UIGraphicsBeginImageContext(self.imageView.frame.size)
+        self.view.drawHierarchy(in: self.imageView.frame, afterScreenUpdates: true)
         let memedImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
 

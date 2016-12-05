@@ -27,18 +27,24 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dca-ZU-zNM">
                                 <rect key="frame" x="0.0" y="277" width="568" height="44"/>
                                 <items>
-                                    <barButtonItem title="Choose photo" id="0BH-ax-ezT">
-                                        <connections>
-                                            <action selector="pickAnImageFromAlbum:" destination="BYZ-38-t0r" id="bqr-Nt-vnJ"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem title="Take photo" id="TSK-PS-Fvr">
+                                    <barButtonItem systemItem="camera" id="TSK-PS-Fvr">
                                         <connections>
                                             <action selector="pickAnImageFromCamera:" destination="BYZ-38-t0r" id="D3N-ga-DNh"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem systemItem="organize" id="0BH-ax-ezT">
+                                        <connections>
+                                            <action selector="pickAnImageFromAlbum:" destination="BYZ-38-t0r" id="bqr-Nt-vnJ"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="qyI-N4-gm0"/>
+                                    <barButtonItem systemItem="cancel" id="oVt-nQ-UXS">
+                                        <connections>
+                                            <action selector="cancel:" destination="BYZ-38-t0r" id="83V-tn-XZo"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="VM1-7c-KAs"/>
-                                    <barButtonItem title="Share" id="uod-0A-6Ou">
+                                    <barButtonItem systemItem="action" id="uod-0A-6Ou">
                                         <connections>
                                             <action selector="share:" destination="BYZ-38-t0r" id="0Eb-Ry-PKg"/>
                                         </connections>
@@ -51,24 +57,24 @@
                                     <constraint firstAttribute="width" secondItem="rID-H1-QV0" secondAttribute="height" multiplier="1:1" id="Muc-Uk-emK"/>
                                 </constraints>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="TOP" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1M8-7I-hLQ">
-                                <rect key="frame" x="260.5" y="28" width="47.5" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="TOP" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1M8-7I-hLQ">
+                                <rect key="frame" x="242.5" y="28" width="83.5" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBlack" family="Helvetica Neue" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBlack" family="Helvetica Neue" pointSize="40"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="done"/>
                                 <connections>
-                                    <action selector="textEditingDidBegin:" destination="BYZ-38-t0r" eventType="editingDidBegin" id="6Lp-pD-SXf"/>
+                                    <action selector="textChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="np1-KL-W3t"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="BOTTOM" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cki-k9-Gmn">
-                                <rect key="frame" x="244.5" y="238" width="78.5" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="BOTTOM" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cki-k9-Gmn">
+                                <rect key="frame" x="206.5" y="238" width="156" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBlack" family="Helvetica Neue" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBlack" family="Helvetica Neue" pointSize="40"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="done"/>
                                 <connections>
-                                    <action selector="textEditingDidBegin:" destination="BYZ-38-t0r" eventType="editingDidBegin" id="GPB-6O-QcV"/>
+                                    <action selector="textChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="Q2s-tx-tqJ"/>
                                 </connections>
                             </textField>
                         </subviews>
@@ -91,13 +97,13 @@
                         <outlet property="bottomText" destination="cki-k9-Gmn" id="KDM-Lc-PwI"/>
                         <outlet property="bottomToolbar" destination="Dca-ZU-zNM" id="3bf-4W-Irh"/>
                         <outlet property="cameraButton" destination="TSK-PS-Fvr" id="qCe-up-m0y"/>
-                        <outlet property="imagePickerView" destination="rID-H1-QV0" id="cCV-TZ-GPv"/>
+                        <outlet property="imageView" destination="rID-H1-QV0" id="Wxg-XJ-r7v"/>
                         <outlet property="topText" destination="1M8-7I-hLQ" id="HTN-f2-v6a"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="133.59999999999999" y="138.98050974512745"/>
+            <point key="canvasLocation" x="133.09859154929578" y="138.75"/>
         </scene>
     </scenes>
 </document>
