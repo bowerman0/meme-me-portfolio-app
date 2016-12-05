@@ -37,6 +37,12 @@
                                             <action selector="pickAnImageFromCamera:" destination="BYZ-38-t0r" id="D3N-ga-DNh"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="VM1-7c-KAs"/>
+                                    <barButtonItem title="Share" id="uod-0A-6Ou">
+                                        <connections>
+                                            <action selector="share:" destination="BYZ-38-t0r" id="0Eb-Ry-PKg"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rID-H1-QV0">
@@ -83,6 +89,7 @@
                     </view>
                     <connections>
                         <outlet property="bottomText" destination="cki-k9-Gmn" id="KDM-Lc-PwI"/>
+                        <outlet property="bottomToolbar" destination="Dca-ZU-zNM" id="3bf-4W-Irh"/>
                         <outlet property="cameraButton" destination="TSK-PS-Fvr" id="qCe-up-m0y"/>
                         <outlet property="imagePickerView" destination="rID-H1-QV0" id="cCV-TZ-GPv"/>
                         <outlet property="topText" destination="1M8-7I-hLQ" id="HTN-f2-v6a"/>

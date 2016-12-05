@@ -14,6 +14,7 @@
 		D25E34561DDAA450001104FC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D25E34541DDAA450001104FC /* LaunchScreen.storyboard */; };
 		D25E34611DDAA450001104FC /* meme_meTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25E34601DDAA450001104FC /* meme_meTests.swift */; };
 		D25E346C1DDAA450001104FC /* meme_meUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25E346B1DDAA450001104FC /* meme_meUITests.swift */; };
+		D28FFF9F1DF4D11C00EA629D /* MemeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28FFF9E1DF4D11C00EA629D /* MemeModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		D25E34671DDAA450001104FC /* meme-meUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "meme-meUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D25E346B1DDAA450001104FC /* meme_meUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = meme_meUITests.swift; sourceTree = "<group>"; };
 		D25E346D1DDAA450001104FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D28FFF9E1DF4D11C00EA629D /* MemeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				D25E34521DDAA450001104FC /* Assets.xcassets */,
 				D25E34541DDAA450001104FC /* LaunchScreen.storyboard */,
 				D25E34571DDAA450001104FC /* Info.plist */,
+				D28FFF9E1DF4D11C00EA629D /* MemeModel.swift */,
 			);
 			path = "meme-me";
 			sourceTree = "<group>";
@@ -263,6 +266,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D25E344E1DDAA450001104FC /* ViewController.swift in Sources */,
+				D28FFF9F1DF4D11C00EA629D /* MemeModel.swift in Sources */,
 				D25E344C1DDAA450001104FC /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -514,6 +518,7 @@
 				D25E34721DDAA450001104FC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D25E34731DDAA450001104FC /* Build configuration list for PBXNativeTarget "meme-meTests" */ = {
 			isa = XCConfigurationList;
@@ -522,6 +527,7 @@
 				D25E34751DDAA450001104FC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D25E34761DDAA450001104FC /* Build configuration list for PBXNativeTarget "meme-meUITests" */ = {
 			isa = XCConfigurationList;
@@ -530,6 +536,7 @@
 				D25E34781DDAA450001104FC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

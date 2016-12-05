@@ -16,6 +16,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var topText: UITextField!
     @IBOutlet weak var bottomText: UITextField!
+    @IBOutlet weak var bottomToolbar: UIToolbar!
 
     // MARK: Actions
 
@@ -24,6 +25,18 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     @IBAction func pickAnImageFromCamera(_ sender: Any) {
         pickAnImage(.camera)
+    }
+
+    @IBAction func share(_ sender: Any) {
+        let shareText = self.topText.text ?? self.bottomText.text ?? "OMG MEME"
+        let image = self.generateMemedImage()
+        let shareItems = [ image, shareText ] as [Any]
+        let activityViewController = UIActivityViewController(activityItems: shareItems, applicationActivities: nil)
+        self.present(activityViewController,
+                     animated: true,
+                     completion: nil)
+
+
     }
 
     func pickAnImage(_ sourceType: UIImagePickerControllerSourceType) {
@@ -119,6 +132,28 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func unsubscribeFromKeyboardNotifications() {
         NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillShow, object: nil)
         NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillHide, object: nil)
+    }
+
+    // MARK: meme-ifier
+
+    func generateMemedImage() -> UIImage {
+
+        // Hide toolbar and navbar
+        navigationController?.setToolbarHidden(false, animated: false)
+        self.bottomToolbar.isHidden = true
+
+
+        // Render view to an image
+        UIGraphicsBeginImageContext(self.imagePickerView.frame.size)
+        view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
+        let memedImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+
+        // Show toolbar and navbar
+        navigationController?.setToolbarHidden(true, animated: false)
+        self.bottomToolbar.isHidden = false
+
+        return memedImage
     }
 }
 
